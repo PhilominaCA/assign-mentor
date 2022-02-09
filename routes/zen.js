@@ -84,7 +84,7 @@ router.post('/create-mentor', async (req, res) => {
     const db = await client.db(dbName)
 
     try {
-        let mentorData = await db.collection('mentors').find({ mentor_email: req.body.mentor_email }).toArray();
+        let mentorData = await db.collection('mentors').find({ mentor_id: req.body.mentor_id }).toArray();
         if (mentorData.length > 0) {
             res.json({
                 statusCode: 400,
